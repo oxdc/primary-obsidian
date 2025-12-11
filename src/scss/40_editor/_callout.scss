@@ -8,6 +8,7 @@
     overflow: visible;
 }
 
+// Primary Default
 .callout {
     background-color: color-mix(
                             in srgb,
@@ -64,6 +65,41 @@
     }
 }
 
+// Primary Flat
+body.callout-flat {
+    .callout {
+        --callout-title-shadow: none;
+        --callout-content-shadow: none;
+        --callout-container-shadow: none;
+    }
+}
+
+// Full Color
+body.callout-fullcolor {
+    .callout {
+        --callout-content-background: color-mix(
+                                            in srgb,
+                                            rgba(var(--callout-color)) var(--callout-color-opacity), 
+                                            var(--editor-bg-color)
+                                            );
+        --callout-color-opacity: 16.5%;
+        --callout-title-shadow: none;
+        --callout-content-shadow: none;
+        --callout-container-shadow: none;
+    }
+}
+
+// Color Callout Title
+body.callout-colored-title {
+    .callout {
+        --callout-title-color: rgba(var(--callout-color) 100%);
+    
+        &-title-inner {
+            filter: var(--callout-title-filter);
+        }
+    }
+}
+
 // Callout Type Styling
 // you can create custom callout types with custom icons
 // via adding the --callout-icon variable and using lucide class names
@@ -99,6 +135,29 @@ body {
     --callout-icon-quote: message-square-note;
     --callout-icon-cite: book-marked;
 
+    // Primary Exclusive Callout Icons
+    --callout-icon-archive: archive;
+    --callout-icon-law: scale;
+    --callout-icon-pro: thumbs-up;
+    --callout-icon-con: thumbs-down;
+    --callout-icon-idea: lightbulb;
+    --callout-icon-formula: calculator;
+    --callout-icon-related: shuffle;
+    --callout-icon-celebrate: party-popper;
+    --callout-icon-money: circle-dollar-sign;
+    --callout-icon-backlog: layers-3;
+    --callout-icon-in-progress: circle-dashed;
+    --callout-icon-target: target;
+    --callout-icon-resources: library-big;
+    --callout-icon-links: link;
+    --callout-icon-world: sparkles;
+    --callout-icon-backstory: history;
+    --callout-icon-conflict: swords;
+    --callout-icon-challenge: sword;
+    --callout-icon-encounter: rabbit;
+    --callout-icon-translation: languages;
+    --callout-icon-spoiler: eye-off;
+
     // Native Callout Colors
     --callout-rgb-general: 182, 196, 182;
     --callout-rgb-note: 200, 175, 155;
@@ -127,12 +186,37 @@ body {
     --callout-rgb-example: 216, 141, 130;
     --callout-rgb-quote: 173, 214, 171;
     --callout-rgb-cite: 237, 217, 162;
+
+    // Primary Exclusive Callout Colors
+    --callout-rgb-archive: 170, 136, 82;
+    --callout-rgb-law: 189, 123, 68;
+    --callout-rgb-pro: 57, 169, 80;
+    --callout-rgb-con: 221, 65, 71;
+    --callout-rgb-idea: 243, 161, 56;
+    --callout-rgb-formula: 105, 219, 209;
+    --callout-rgb-related: 175, 213, 173;
+    --callout-rgb-celebrate: 156, 129, 106;
+    --callout-celebrate-color: linear-gradient(45deg, #ef92af70, #7bd7e970, #81e1a570, #ffda2b70);
+    --callout-rgb-money: 126, 208, 122;
+    --callout-rgb-backlog: 170, 136, 82;
+    --callout-rgb-in-progress: 244, 220, 19;
+    --callout-rgb-target: 231, 143, 37;
+    --callout-rgb-resources: 182, 93, 150;
+    --callout-rgb-links: 93, 169, 200;
+    --callout-rgb-world: 255, 199, 160;
+    --callout-rgb-backstory: 70, 206, 185;
+    --callout-rgb-conflict: 195, 33, 77;
+    --callout-rgb-challenge: 216, 141, 130;
+    --callout-rgb-encounter: 137, 192, 108;
+    --callout-rgb-translation: 242, 169, 200;
+    --callout-rgb-spoiler: 156, 129, 106;
 }
 
 .callout {
     --callout-icon: var(--callout-icon-general);
     --callout-color: var(--callout-rgb-general);
 
+    // Native Callouts
     &[data-callout="note"] {
         --callout-icon: var(--callout-icon-note);
         --callout-color: var(--callout-rgb-note);
@@ -238,5 +322,101 @@ body {
     &[data-callout="cite"] {
         --callout-icon: var(--callout-icon-cite);
         --callout-color: var(--callout-rgb-cite);
+    }
+
+    // Primary Exclusive Callouts
+    &[data-callout="archive"] {
+        --callout-icon: var(--callout-icon-archive);
+        --callout-color: var(--callout-rgb-archive);
+    }
+    &[data-callout="law"] {
+        --callout-icon: var(--callout-icon-law);
+        --callout-color: var(--callout-rgb-law);
+    }
+    &[data-callout="pro"] {
+        --callout-icon: var(--callout-icon-pro);
+        --callout-color: var(--callout-rgb-pro);
+    }
+    &[data-callout="con"] {
+        --callout-icon: var(--callout-icon-con);
+        --callout-color: var(--callout-rgb-con);
+    }
+    &[data-callout="idea"] {
+        --callout-icon: var(--callout-icon-idea);
+        --callout-color: var(--callout-rgb-idea);
+    }
+    &[data-callout="formula"] {
+        --callout-icon: var(--callout-icon-formula);
+        --callout-color: var(--callout-rgb-formula);
+    }
+    &[data-callout="related"] {
+        --callout-icon: var(--callout-icon-related);
+        --callout-color: var(--callout-rgb-related);
+    }
+    &[data-callout="celebrate"] {
+        --callout-icon: var(--callout-icon-celebrate);
+        --callout-color: var(--callout-rgb-celebrate);
+
+        background: var(--callout-celebrate-color);
+        background-size: 800% 800%;
+        animation: animateCelebrate 15s ease infinite;
+    }
+    &[data-callout="money"] {
+        --callout-icon: var(--callout-icon-money);
+        --callout-color: var(--callout-rgb-money);
+    }
+    &[data-callout="backlog"] {
+        --callout-icon: var(--callout-icon-backlog);
+        --callout-color: var(--callout-rgb-backlog);
+    }
+    &[data-callout="in-progress"] {
+        --callout-icon: var(--callout-icon-in-progress);
+        --callout-color: var(--callout-rgb-in-progress);
+    }
+    &[data-callout="target"] {
+        --callout-icon: var(--callout-icon-target);
+        --callout-color: var(--callout-rgb-target);
+    }
+    &[data-callout="resources"] {
+        --callout-icon: var(--callout-icon-resources);
+        --callout-color: var(--callout-rgb-resources);
+    }
+    &[data-callout="links"] {
+        --callout-icon: var(--callout-icon-links);
+        --callout-color: var(--callout-rgb-links);
+    }
+    &[data-callout="world"] {
+        --callout-icon: var(--callout-icon-world);
+        --callout-color: var(--callout-rgb-world);
+    }
+    &[data-callout="backstory"] {
+        --callout-icon: var(--callout-icon-backstory);
+        --callout-color: var(--callout-rgb-backstory);
+    }
+    &[data-callout="conflict"] {
+        --callout-icon: var(--callout-icon-conflict);
+        --callout-color: var(--callout-rgb-conflict);
+    }
+    &[data-callout="challenge"] {
+        --callout-icon: var(--callout-icon-challenge);
+        --callout-color: var(--callout-rgb-challenge);
+    }
+    &[data-callout="encounter"] {
+        --callout-icon: var(--callout-icon-encounter);
+        --callout-color: var(--callout-rgb-encounter);
+    }
+    &[data-callout="translation"] {
+        --callout-icon: var(--callout-icon-translation);
+        --callout-color: var(--callout-rgb-translation);
+    }
+    &[data-callout="spoiler"] {
+        background: transparent;
+        
+        --callout-icon: var(--callout-icon-spoiler);
+        --callout-color: var(--callout-rgb-spoiler);
+        --callout-title-shadow: none;
+        --callout-content-shadow: none;
+        --callout-container-shadow: none;
+        --callout-content-background: none;
     }
 }

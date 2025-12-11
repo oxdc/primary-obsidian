@@ -493,7 +493,12 @@ settings:
         type: heading
         level: 2
         collapsed: true
-        title: Progress
+        title: Progress Bar
+    -
+        id: readme-content
+        type: info-text
+        markdown: true
+        description: 📖 Want to learn how to use Progress Bars in your notes? [Read the full guide](https://primary-theme.github.io/features/progress-bars/).
     -
         id: progress-bar-width
         type: variable-text
@@ -552,7 +557,7 @@ settings:
     -
         id: progress-color-2
         type: variable-themed-color
-        title: Progress Color 1
+        title: Progress Color 2
         description: Color for values 40% to 59%
         format: hsl
         opacity: true
@@ -561,7 +566,7 @@ settings:
     -
         id: progress-color-3
         type: variable-themed-color
-        title: Progress Color 1
+        title: Progress Color 3
         description: Color for values 60% to 79%
         format: hsl
         opacity: true
@@ -570,7 +575,7 @@ settings:
     -
         id: progress-color-4
         type: variable-themed-color
-        title: Progress Color 1
+        title: Progress Color 4
         description: Color for values 80% to 99%
         format: hsl
         opacity: true
@@ -608,6 +613,44 @@ settings:
         opacity: true
         default-light: 'hsla(197, 39%, 56%, 1)'
         default-dark: 'hsla(194, 59%, 56%, 1)'
+    -
+        id: comp_markdown-popover
+        type: heading
+        level: 2
+        collapsed: true
+        title: Markdown Popover
+    -
+        id: readme-content
+        type: info-text
+        markdown: true
+        description: 💬 Markdown popovers are the popups that show up when you press `Cmd`/`Ctrl` while hovering over a note title or link.
+    -
+        id: popover-width
+        type: variable-number
+        title: Popover Width
+        default: 450
+        format: px
+    -
+        id: popover-height
+        type: variable-number
+        title: Popover Height
+        default: 400
+        format: px
+    -
+        id: popover-max-height
+        type: variable-number
+        title: Popover Height
+        description: Unit is in vh or viewport height. This is the percentage size of your screen - height-wise. The reason why you would want to use this unit is so that whether your window is small or enlarged, the height will relatively adjust.
+        default: 95
+        format: vh
+    -
+        id: popover-border-color-editing
+        type: variable-themed-color
+        title: Popover Border Color when Editing
+        format: hsl
+        opacity: true
+        default-light: 'hsla(36, 37%, 75%, 1)'
+        default-dark: 'hsla(29, 25%, 21%, 1)'
 	-
 		id: notes-files
 		type: heading
@@ -1499,6 +1542,11 @@ settings:
         opacity: true
         default-light: 'hsla(31, 23%, 50%, 1)'
         default-dark: 'hsla(35, 27%, 55%, 1)'
+    -
+        id: zero_multicolor-formatting
+        type: class-toggle
+        title: Toggle Off Multicolor Emphasis
+        description: If you prefer to have just the editor text color for markdown formatting (instead of red for bold, blue for italics, etc.), turn this on.
 	-
 		id: nf_highlight
 		type: heading
@@ -1585,6 +1633,11 @@ settings:
         opacity: true
         default-light: 'hsla(74, 69%, 44%, 0.2)'
         default-dark: 'hsla(74, 69%, 44%, 0.2)'
+    -
+        id: zero_multicolor-highlights
+        type: class-toggle
+        title: Toggle Off Multicolor Highlights
+        description: If you prefer to have just one color (yellow) for the highlights, toggle this on.
 	-
 		id: nf_link
 		type: heading
@@ -1854,6 +1907,11 @@ settings:
 		level: 2
 		collapsed: true
 		title: Checkbox Icons
+    -
+        id: readme-content
+        type: info-text
+        markdown: true
+        description: 📖 Visit the [Checkbox Icons](https://primary-theme.github.io/) section for a complete guide on how to use them!
     -
         id: inprogress-chbx-color
         type: variable-themed-color
@@ -2332,6 +2390,418 @@ settings:
         opacity: true
         default-light: 'hsla(37, 38%, 83%, 1)'
         default-dark: 'hsla(34, 24%, 40%, 1)'
+	-
+		id: nf_callout
+		type: heading
+		level: 2
+		collapsed: true
+		title: Callout
+    -
+        id: readme-content
+        type: info-text
+        markdown: true
+        description: 🎨 Visit the [Callout Presets](https://primary-theme.github.io/) section for some Callout styling presets!
+    -
+        id: nf_callout-style
+        type: class-select
+        title: Callout Style
+        allowEmpty: false
+        default: callout-default
+        options:
+            -
+                label: Default
+                value: callout-default
+            -
+                label: Flat Default
+                value: callout-flat
+            -
+                label: Full Color
+                value: callout-fullcolor
+    -
+        id: callout-colored-title
+        type: class-toggle
+        title: Toggle Colored Callout Title
+        description: Color Callout Titles according to their Callout Color instead of Editor Text Color.
+    -
+        id: callout-radius
+        type: variable-text
+        title: Callout Roundness
+        description: The roundness value's order goes top left, top right, bottom right, bottom left.
+        default: 3px 3px 3px 3px
+    -
+        id: callout-border-width
+        type: variable-text
+        title: Callout Border Width
+        description: The border width's value order goes top left, top right, bottom right, bottom left. If you want a soft outlining, try 1px 1px 1px 1px. If you want an intense left border, try 0px 0px 0px 4px.
+        default: 0px 0px 0px 0px
+    -
+        id: callout-border-opacity
+        type: variable-number
+        title: Callout Border Opacity
+        description: Intensity of Callout Border's color. Choose any value from 0 to 1. If you have an intense left border, try 0.6.
+        default: 0.2
+	-
+		id: nf_callout-customizations
+		type: heading
+		level: 3
+		collapsed: true
+		title: Callout Icons and Color Adjustment
+    -
+        id: readme-content
+        type: info-text
+        markdown: true
+        description: 🚨 Before customizing your callouts in this section, please read the [Callout Customization](https://primary-theme.github.io/) section in the theme docs.
+    -
+        id: callout-icon-general
+        type: variable-text
+        title: General Callout Icon
+        default: shapes
+    -
+        id: callout-rgb-general
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: General Callout Color
+        default-light: 'rgb(182, 196, 182)'
+        default-dark: 'rgb(182, 196, 182)'
+    -
+        id: callout-icon-note
+        type: variable-text
+        title: Note Callout Icon
+        default: sticker
+    -
+        id: callout-rgb-note
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Note Callout Color
+        default-light: 'rgb(200, 175, 155)'
+        default-dark: 'rgb(200, 175, 155)'
+    -
+        id: callout-icon-abstract
+        type: variable-text
+        title: Summary Callout Icon
+        default: loader
+    -
+        id: callout-rgb-abstract
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Summary Callout Color
+        default-light: 'rgb(34, 152, 225)'
+        default-dark: 'rgb(34, 152, 225)'
+    -
+        id: callout-icon-summary
+        type: variable-text
+        title: Summary Callout Icon
+        default: align-justify
+    -
+        id: callout-rgb-summary
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Summary Callout Color
+        default-light: 'rgb(234, 181, 52)'
+        default-dark: 'rgb(234, 181, 52)'
+    -
+        id: callout-icon-tldr
+        type: variable-text
+        title: tldr Callout Icon
+        default: align-justify
+    -
+        id: callout-rgb-tldr
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Info Callout Color
+        default-light: 'rgb(240, 180, 225)'
+        default-dark: 'rgb(240, 180, 225)'
+    -
+        id: callout-icon-info
+        type: variable-text
+        title: Info Callout Icon
+        default: badge-info
+    -
+        id: callout-rgb-info
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Info Callout Color
+        default-light: 'rgb(71, 162, 187)'
+        default-dark: 'rgb(71, 162, 187)'
+    -
+        id: callout-icon-todo
+        type: variable-text
+        title: Todo Callout Icon
+        default: list-todo
+    -
+        id: callout-rgb-todo
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Todo Callout Color
+        default-light: 'rgb(58, 173, 252)'
+        default-dark: 'rgb(58, 173, 252)'
+    -
+        id: callout-icon-tip
+        type: variable-text
+        title: Tip Callout Icon
+        default: clover
+    -
+        id: callout-rgb-tip
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Tip Callout Color
+        default-light: 'rgb(70, 206, 185)'
+        default-dark: 'rgb(70, 206, 185)'
+    -
+        id: callout-icon-hint
+        type: variable-text
+        title: Hint Callout Icon
+        default: search-slash
+    -
+        id: callout-rgb-hint
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Hint Callout Color
+        default-light: 'rgb(70, 206, 185)'
+        default-dark: 'rgb(70, 206, 185)'
+    -
+        id: callout-icon-important
+        type: variable-text
+        title: Important Callout Icon
+        default: square-asterisk
+    -
+        id: callout-rgb-important
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Important Callout Color
+        default-light: 'rgb(246, 113, 118)'
+        default-dark: 'rgb(246, 113, 118)'
+    -
+        id: callout-icon-success
+        type: variable-text
+        title: Success Callout Icon
+        default: check-check
+    -
+        id: callout-rgb-success
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Success Callout Color
+        default-light: 'rgb(87, 200, 83)'
+        default-dark: 'rgb(87, 200, 83)'
+    -
+        id: callout-icon-check
+        type: variable-text
+        title: Check Callout Icon
+        default: check-check
+    -
+        id: callout-rgb-check
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Check Callout Color
+        default-light: 'rgb(87, 200, 83)'
+        default-dark: 'rgb(87, 200, 83)'
+    -
+        id: callout-icon-done
+        type: variable-text
+        title: Done Callout Icon
+        default: check-check
+    -
+        id: callout-rgb-done
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Done Callout Color
+        default-light: 'rgb(87, 200, 83)'
+        default-dark: 'rgb(87, 200, 83)'
+    -
+        id: callout-icon-question
+        type: variable-text
+        title: Success Callout Icon
+        default: circle-help
+    -
+        id: callout-rgb-question
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Success Callout Color
+        default-light: 'rgb(130, 190, 235)'
+        default-dark: 'rgb(130, 190, 235)'
+    -
+        id: callout-icon-help
+        type: variable-text
+        title: Help Callout Icon
+        default: life-buoy
+    -
+        id: callout-rgb-help
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Help Callout Color
+        default-light: 'rgb(250, 128, 96)'
+        default-dark: 'rgb(250, 128, 96)'
+    -
+        id: callout-icon-faq
+        type: variable-text
+        title: FAQ Callout Icon
+        default: circle-help
+    -
+        id: callout-rgb-faq
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: FAQ Callout Color
+        default-light: 'rgb(130, 190, 235)'
+        default-dark: 'rgb(130, 190, 235)'
+    -
+        id: callout-icon-warning
+        type: variable-text
+        title: Warning Callout Icon
+        default: triangle-alert
+    -
+        id: callout-rgb-warning
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Warning Callout Color
+        default-light: 'rgb(255, 161, 32)'
+        default-dark: 'rgb(255, 161, 32)'
+    -
+        id: callout-icon-caution
+        type: variable-text
+        title: Warning Callout Icon
+        default: construction
+    -
+        id: callout-rgb-caution
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Warning Callout Color
+        default-light: 'rgb(255, 161, 32)'
+        default-dark: 'rgb(255, 161, 32)'
+    -
+        id: callout-icon-attention
+        type: variable-text
+        title: Attention Callout Icon
+        default: construction
+    -
+        id: callout-rgb-attention
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Attention Callout Color
+        default-light: 'rgb(255, 161, 32)'
+        default-dark: 'rgb(255, 161, 32)'
+    -
+        id: callout-icon-fail
+        type: variable-text
+        title: Fail Callout Icon
+        default: circle-slash
+    -
+        id: callout-rgb-fail
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Fail Callout Color
+        default-light: 'rgb(226, 72, 86)'
+        default-dark: 'rgb(226, 72, 86)'
+    -
+        id: callout-icon-missing
+        type: variable-text
+        title: Missing Callout Icon
+        default: search
+    -
+        id: callout-rgb-missing
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Missing Callout Color
+        default-light: 'rgb(226, 72, 86)'
+        default-dark: 'rgb(226, 72, 86)'
+    -
+        id: callout-icon-danger
+        type: variable-text
+        title: Danger Callout Icon
+        default: shield-alert
+    -
+        id: callout-rgb-danger
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Danger Callout Color
+        default-light: 'rgb(226, 72, 86)'
+        default-dark: 'rgb(226, 72, 86)'
+    -
+        id: callout-icon-error
+        type: variable-text
+        title: Error Callout Icon
+        default: ban
+    -
+        id: callout-rgb-error
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Error Callout Color
+        default-light: 'rgb(226, 72, 86)'
+        default-dark: 'rgb(226, 72, 86)'
+    -
+        id: callout-icon-bug
+        type: variable-text
+        title: Bug Callout Icon
+        default: bug
+    -
+        id: callout-rgb-bug
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Bug Callout Color
+        default-light: 'rgb(153, 93, 133)'
+        default-dark: 'rgb(153, 93, 133)'
+    -
+        id: callout-icon-example
+        type: variable-text
+        title: Example Callout Icon
+        default: scroll-text
+    -
+        id: callout-rgb-example
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Example Callout Color
+        default-light: 'rgb(216, 141, 130)'
+        default-dark: 'rgb(216, 141, 130)'
+    -
+        id: callout-icon-quote
+        type: variable-text
+        title: Quote Callout Icon
+        default: message-square-note
+    -
+        id: callout-rgb-quote
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Quote Callout Color
+        default-light: 'rgb(173, 214, 171)'
+        default-dark: 'rgb(173, 214, 171)'
+    -
+        id: callout-icon-cite
+        type: variable-text
+        title: Quote Callout Icon
+        default: book-marked
+    -
+        id: callout-rgb-cite
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        title: Quote Callout Color
+        default-light: 'rgb(237, 217, 162)'
+        default-dark: 'rgb(237, 217, 162)'
 	-
 		id: canvas
 		type: heading
